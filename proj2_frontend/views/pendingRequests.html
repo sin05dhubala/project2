@@ -1,0 +1,28 @@
+<table class="table table-striped">
+<tbody>
+<tr ng-repeat="request in pendingRequests">
+<td>
+<a ng-click="getUserDetails(request.fromId)">
+<img src="http://localhost:8080/project2_backend/getprofilepic/{{request.fromId}}" class="img-circle" height="50px" width="50px">
+</a>
+</td>
+
+<td><a ng-click="getUserDetails(request.fromId)">{{request.fromId}}</a>
+
+
+</td>
+<td><a href="" class="btn btn-default" ng-click="updatePendingRequest(request,'A')">Accept</a>
+<a href="" class="btn btn-default" ng-click="updatePendingRequest(request,'D')">Delete Request</a>
+</td>
+</tr>
+</tbody>
+
+</table>
+
+<div ng-show="showUserDetails">
+Firstname : {{user.firstname}}<br>
+Lastname : {{user.lastname}}<br>
+Email: {{user.email}}<br>
+PhoneNumber : {{user.phonenumber}}<br>
+Role: {{user.role}}
+</div>

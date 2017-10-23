@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--  Bootstrap, Angular Js ,Angular Route js -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+     
+   
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
+  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+	rel="stylesheet" />
+	<link rel="stylesheet" href="css/sample.css"/>
+	
+	 <script src="js/sockjs/sockjs.js"></script>
+    <script src="js/stomp/dist/stomp.js"></script>
+	
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="ngApp">
+<header>
+            <nav class="navbar navbar-default">
+            
+           <div class="container-fluid">
+		<button type="button" class="navbar-toggle collapsed" 
+   data-toggle="collapse" data-target="#collapse-example" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">NIIT</a>
+                </div>
+<div class="collapse navbar-collapse" id="collapse-example">
+                <ul class="nav navbar-nav ">
+                <li><a href="#/home">Home</a></li>
+                <li><a href="#/registration" ng-hide="currentUser.firstname">Sign Up</a></li>
+                <li><a href="#/login" ng-hide="currentUser.firstname">Sign in</a></li>
+                <li><a href="" ng-show="currentUser.firstname">Welcome {{currentUser.firstname}} {{currentUser.lastname}}</a></li>
+                <li><a href="#/editprofile" ng-show="currentUser.firstname">Edit Profile</a></li>
+                <li><a href="#/savejob" ng-show="currentUser.role=='ADMIN'">Add Job</a></li>
+                <li><a href="#/getalljobs" ng-show="currentUser.firstname">Get all jobs</a></li>
+                
+                <li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username"> Blog <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/saveblogpost">Add a Blog</a></li>
+							<li><a href="#/getallblogs">Get All Blogs</a></li>
+						</ul></li>
+					
+				 <li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username"> Friend <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/suggestedusers">List of suggested users</a></li>
+							<li><a href="#/pendingrequests">Pending Requests</a></li>
+							<li><a href="#/getfriends">Friends({{noOfFriends}})</a></li>
+							<li><a></a></li>
+						</ul></li>
+					
+					<li class="dropdown"><a href="" class="dropdown-toggle"
+						data-toggle="dropdown" ng-show="currentUser.username"> 
+						<span class="glyphicon glyphicon-globe">
+						<span class="rw-number-notification"  ng-if="approvalStatus.length>0" >{{approvalStatus.length}}</span></span></a> 
+						</a>
+						<ul class="dropdown-menu">
+						    
+							<li ng-repeat="blogPostStatus in approvalStatus">
+							<a href="#/approvalstatus/{{blogPostStatus.id}}">"{{blogPostStatus.blogTitle}}" is 
+							      <span ng-if="blogPostStatus.approved">Approved</span>
+							      <span ng-if="!blogPostStatus.approved">Rejected</span></a></li>
+							
+						</ul></li>
+					<li><a href="#/uploadprofilepic" ng-show="currentUser.firstname"><img alt="Upload Profile Pic" 
+					src="http://localhost:8082/project2_backend/getprofilepic/{{currentUser.username}}" height="30px" width="30px" class="img-circle">
+					
+					</a></li>
+					
+					<li><a href="#/chat" ng-show="currentUser.username">chat </a></li>
+						
+                <li><a href="" ng-click="logout()" ng-show="currentUser.firstname">logout</a></li>
+                </ul>
+
+</div>
+</div>
+  
+            </nav>
+        </header>
+ <div ng-view></div>
+</body>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+
+	<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+	
+	<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="controller/usercontroller.js"></script>
+	<script type="text/javascript" src="service/userservice.js"></script>
+	
+	<script type="text/javascript" src="controller/jobcontroller.js"></script>
+	<script type="text/javascript" src="service/jobservices.js"></script>
+	
+	<script type="text/javascript" src="controller/blogpostcontroller.js"></script>
+	<script type="text/javascript" src="service/blogpostservice.js"></script>
+	<script type="text/javascript" src="controller/blogpostdetailcontroller.js"></script>
+	<script type="text/javascript" src="controller/homecontroller.js"></script>
+	
+	<script type="text/javascript" src="controller/friendcontroller.js"></script>
+	<script type="text/javascript" src="service/friendservice.js"></script>
+	
+	<script type="text/javascript" src="controller/chatcontroller.js"></script>
+<script type="text/javascript" src="service/chatservice.js"></script>
+	
+	
+</html>

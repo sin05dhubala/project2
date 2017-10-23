@@ -1,0 +1,20 @@
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+<th>pic</th>
+<th>FriendRequest</th>
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="user in suggestedUsers">
+<td>{{user.firstname}}</td><td>{{user.lastname}}</td><td>
+<img src="http://localhost:8080/project2_backend/getprofilepic/{{user.username}}" alt="image" height="30px" width="30px"></td>
+<td>
+<a class="btn btn-default" ng-click="sendFriendRequest(user.username)">Send Friend Request</a>
+</td>
+</tr>
+
+</tbody>
+</table>

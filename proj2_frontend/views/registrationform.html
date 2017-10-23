@@ -1,0 +1,55 @@
+<div class="container">
+<span style="color:red">{{exception.message}}</span>
+<form>
+<div class="form-group">
+Enter username 
+<input type="text" placeholder="Enter username" ng-model="user.username" class="form-control" required>
+<span style="color:red">{{duplicateUsername.message}}</span>
+</div>
+
+<div class="form-group">
+Enter password
+<input type="password" placeholder="Enter password" ng-model="user.password" class="form-control">
+</div>
+
+<div class="form-group">
+Enter Firstname 
+<input type="text" placeholder="Enter firstname" ng-model="user.firstname" class="form-control">
+</div>
+
+<div class="form-group">
+Enter lastname 
+<input type="text" placeholder="Enter lastname" ng-model="user.lastname" class="form-control">
+</div>
+
+<div class="form-group">
+Enter email 
+<input type="email" placeholder="Enter email" ng-model="user.email" class="form-control">
+<span style="color:red">{{duplicateEmail.message}}</span>
+</div>
+
+<div class="form-group">
+Enter phonenumber 
+<input type="text" placeholder="Enter phonenumber" ng-model="user.phonenumber" class="form-control">
+</div>
+
+<div class="form-group">
+Select Role: 
+<input type="radio"  ng-model="user.role"  value="STUDENT">Student
+<input type="radio" ng-model="user.role" value="ALUMINI">Alumini
+<input type="radio" ng-model="user.role" value="EMPLOYEE">Employee
+</div>
+<div class="form-group">
+<input type="submit" ng-click="registerUser()" >
+</div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
